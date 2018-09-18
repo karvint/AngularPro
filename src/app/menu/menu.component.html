@@ -1,0 +1,23 @@
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'"  style="height:100%;" *ngIf="menuOptions!==null" [nzInlineCollapsed]="isCollapsed">
+  <li nz-menu-item>
+    <a routerLink="{{homeUrl}}">
+    <i class="anticon anticon-user"></i>
+    <span title><span class="nav-text">
+      首页
+      </span>
+    </span>
+    </a>
+    <!--<a routerLink="{{homeUrl}}"><i class="anticon anticon-bell"></i><span class="nav-text">首页</span></a>-->
+  </li>
+  <ng-container *ngFor="let menu of menuOptions">
+    <li nz-menu-item>
+      <a href="{{menu.url}}">
+      <span title><i class="anticon anticon-user"></i><span class="nav-text">{{menu.menuName}}</span></span></a>
+    </li>
+      <!--<li nz-menu-item style="color:white">-->
+        <!--<i class="anticon anticon-bell"></i>-->
+        <!--<span class="nav-text">{{menu.menuName}}</span>-->
+        <!--<a href="{{menu.url}}"></a>-->
+      <!--</li>-->
+  </ng-container>
+</ul>

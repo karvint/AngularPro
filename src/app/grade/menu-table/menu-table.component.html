@@ -1,0 +1,20 @@
+
+<nz-table #nzTable [nzData]="paginationVo._dataSet" [nzPageSize]="paginationVo.pageSize"
+          (nzPageIndexChange)="searchData()"
+          (nzPageSizeChange)="searchData(true)" [nzLoading]="paginationVo._loading"
+          [nzTotal]="paginationVo._total" [nzFrontPagination]="false">
+  <thead>
+  <tr>
+    <th nzWidth="150px">编号</th>
+    <th nzWidth="150px">菜单名</th>
+    <th nzWidth="150px">菜单地址</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data" >
+    <td>{{data.id}}</td>
+    <td>{{data.menuName}}</td>
+    <td>{{data.url}}</td>
+  </tr>
+  </tbody>
+</nz-table>

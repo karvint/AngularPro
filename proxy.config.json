@@ -1,0 +1,6 @@
+{
+  "/apidata":{
+    "target":"http://192.168.114.63:8085",
+    "secure":false
+  }
+}
