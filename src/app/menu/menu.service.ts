@@ -15,5 +15,4 @@ export class MenuService {
     return this.http.post<ResData>(environment.baseUrl+'menu/init',null,this.httpOptions);
   }
 
-
 }

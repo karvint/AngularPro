@@ -20,7 +20,10 @@
               "src/assets",
               "src/favicon.ico"
             ],
-            "styles": ["node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css"],
+            "styles": [
+              "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css",
+              "node_modules/codemirror/lib/codemirror.css"
+                  ],
             "scripts": []
           },
           "configurations": {

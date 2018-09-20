@@ -1,11 +1,8 @@
 import {Component, Inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {MenuService} from './menu/menu.service';
 import {isNullOrUndefined} from "util";
 import {NavigationEnd, NavigationError, Router} from "@angular/router";
 import {CookieService} from "ngx-cookie";
 import {LoginService} from "./login/login.service";
-import {User} from "./entity/login/User";
-import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -29,6 +26,7 @@ export class AppComponent implements OnInit{
         this.route.navigateByUrl('login');
       }
     });
+
   }
   /** custom trigger can be TemplateRef **/
   changeTrigger(): void {

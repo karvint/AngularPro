@@ -18,6 +18,8 @@ import {HttpHandlerIntercepter} from './intercepter/HttpHandlerIntercepter';
 import {CookieModule} from "ngx-cookie";
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./login/login.service";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+
 
 // 路由配置表：路由定义（route definitions）的数组
 const appRoutes: Routes = [
@@ -44,6 +46,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CodemirrorModule,
     BrowserAnimationsModule,
     CookieModule.forRoot(),
     NgZorroAntdModule.forRoot(),
