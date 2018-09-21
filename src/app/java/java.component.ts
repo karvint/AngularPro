@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import * as CodeMirror from "codemirror";
 import {Constant} from "../constant/constant";
 import 'codemirror/mode/clike/clike.js';
-import 'codemirror/mode/sql/sql';
+import 'codemirror/addon/lint/json-lint.js';
 import 'codemirror/addon/hint/show-hint.js';
 import 'codemirror/addon/hint/sql-hint.js';
 import 'codemirror/addon/display/placeholder.js';
@@ -23,8 +23,12 @@ export class JavaComponent implements OnInit,AfterViewInit {
       indentWithTabs: true,
       lineNumbers: true,
       matchBrackets: true,
+      foldGutter: true,
+      gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+      // CodeMirror-lint-markers是实现语法报错功能
+      lint: true,
       autofocus: false,
-      theme:'eclipse',
+      theme:'monokai',
       styleSelectedText: true,
       extraKeys: {
         "'a'": this.completeAfter,

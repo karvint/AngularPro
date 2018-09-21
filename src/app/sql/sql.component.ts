@@ -1,12 +1,13 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import * as CodeMirror from "codemirror";
 import {Constant} from "../constant/constant";
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/markdown/markdown';
 import 'codemirror/mode/sql/sql';
+import 'codemirror/addon/lint/json-lint.js';
 import 'codemirror/addon/hint/show-hint.js';
 import 'codemirror/addon/hint/sql-hint.js';
 import 'codemirror/addon/display/placeholder.js';
+import {SqlService} from "./sql.service";
+import {SqlData} from "../entity/sql/SqlData";
 @Component({
   selector: 'app-sql',
   templateUrl: './sql.component.html',
@@ -15,8 +16,9 @@ import 'codemirror/addon/display/placeholder.js';
 export class SQLComponent implements OnInit,AfterViewInit {
   code;
   cmOptions;
+  sqlResult;
   @ViewChild("codeEditor")private codeEditor;
-  constructor(private el:ElementRef){}
+  constructor(private el:ElementRef,@Inject("sqlService")private sqlService:SqlService){}
   ngOnInit(){
     this.code = Constant.sqlDefault;
     this.cmOptions = {
@@ -25,8 +27,12 @@ export class SQLComponent implements OnInit,AfterViewInit {
       lineNumbers: true,
       matchBrackets: true,
       autofocus: false,
-      theme:'eclipse',
+      theme:'monokai',
       styleSelectedText: true,
+      foldGutter: true,
+      gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+      // CodeMirror-lint-markers是实现语法报错功能
+      lint: true,
       extraKeys: {
         "'a'": this.completeAfter,
         "'b'": this.completeAfter,
@@ -65,7 +71,7 @@ export class SQLComponent implements OnInit,AfterViewInit {
     };
   }
   ngAfterViewInit(): void {
-    this.codeEditor.codeMirror.setSize(1000,800);
+    this.codeEditor.codeMirror.setSize(1000,600);
     this.codeEditor.codeMirror.refresh();
   }
   completeAfter(cm, pred) {
@@ -93,4 +99,11 @@ export class SQLComponent implements OnInit,AfterViewInit {
     });
   }
 
+  runSql(){
+    const sqlData = new SqlData();
+    sqlData.sql = this.code;
+    this.sqlService.runSql(sqlData).subscribe(res=>{
+      this.sqlResult = res.data;
+    });
+  }
 }

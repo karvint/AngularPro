@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Constant} from "../constant/constant";
 import * as CodeMirror from "codemirror";
+import 'codemirror/addon/lint/json-lint.js';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/addon/hint/show-hint.js';
 import 'codemirror/addon/hint/sql-hint.js';
@@ -23,8 +24,12 @@ export class ScalaComponent implements OnInit,AfterViewInit {
       lineNumbers: true,
       matchBrackets: true,
       autofocus: false,
-      theme:'eclipse',
+      theme:'monokai',
       styleSelectedText: true,
+      foldGutter: true,
+      gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+      // CodeMirror-lint-markers是实现语法报错功能
+      lint: true,
       extraKeys: {
         "'a'": this.completeAfter,
         "'b'": this.completeAfter,

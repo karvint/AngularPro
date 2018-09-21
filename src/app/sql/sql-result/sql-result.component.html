@@ -1,0 +1,19 @@
+<div nz-row class="lineSpacing">
+  <nz-table #nzTable [nzData]="paginationVo._dataSet" [nzPageSize]="paginationVo.pageSize"
+            [nzLoading]="paginationVo._loading">
+    <thead>
+    <tr>
+      <ng-container *ngFor="let item of titles">
+        <th nzWidth="50px">{{item}}</th>
+      </ng-container>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of nzTable.data" >
+      <ng-container *ngFor="let item of titles">
+        <td>{{data[item]}}</td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

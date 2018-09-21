@@ -17,16 +17,12 @@ export const Constant = {
   "    }\n" +
   "}",
   pythonDefault:"print(\"Hello world!\")  #向屏幕输出Hello world!",
-  scalaDefault:"$ scala\n" +
-  "Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_31).\n" +
-  "Type in expressions to have them evaluated.\n" +
-  "Type :help for more information.\n" +
-  "\n" +
-  "scala> 1 + 1\n" +
-  "res0: Int = 2\n" +
-  "\n" +
-  "scala> println(\"Hello World!\")\n" +
-  "Hello World!\n" +
-  "\n" +
-  "scala> "
+  scalaDefault:"object HelloWorld {\n" +
+  "   /* 这是我的第一个 Scala 程序\n" +
+  "    * 以下程序将输出'Hello World!' \n" +
+  "    */\n" +
+  "   def main(args: Array[String]) {\n" +
+  "      println(\"Hello, world!\") // 输出 Hello World\n" +
+  "   }\n" +
+  "}"
 }

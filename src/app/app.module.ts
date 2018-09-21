@@ -23,6 +23,8 @@ import { SQLComponent } from './sql/sql.component';
 import { PythonComponent } from './python/python.component';
 import { JavaComponent } from './java/java.component';
 import { ScalaComponent } from './scala/scala.component';
+import { SqlResultComponent } from './sql/sql-result/sql-result.component';
+import {SqlService} from "./sql/sql.service";
 
 
 // 路由配置表：路由定义（route definitions）的数组
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     SQLComponent,
     PythonComponent,
     JavaComponent,
+    SqlResultComponent,
     ScalaComponent,
     GradeComponent
   ],
@@ -64,6 +67,7 @@ const appRoutes: Routes = [
   providers: [
     {provide :'groupService',useClass :GroupService},
     {provide :'menuService',useClass :MenuService},
+    {provide :'sqlService',useClass :SqlService},
     {provide :'loginService',useClass :LoginService},
     { provide: NZ_MESSAGE_CONFIG, useValue: {
         nzDuration: 4500,
