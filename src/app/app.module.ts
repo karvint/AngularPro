@@ -19,16 +19,21 @@ import {CookieModule} from "ngx-cookie";
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./login/login.service";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import { SQLComponent } from './sql/sql.component';
+import { PythonComponent } from './python/python.component';
+import { JavaComponent } from './java/java.component';
+import { ScalaComponent } from './scala/scala.component';
 
 
 // 路由配置表：路由定义（route definitions）的数组
 const appRoutes: Routes = [
   {path: 'login' , component: LoginComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'home' , component: HomeComponent},
-  {path:'grade' , component:GradeComponent},
-  {path:'group',component:GroupComponent},
-  {path:'gate',component:GateComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'sql' , component: SQLComponent},
+  {path:'python' , component:PythonComponent},
+  {path:'java',component:JavaComponent},
+  {path:'scala',component:ScalaComponent},
 ];
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ const appRoutes: Routes = [
     MenuComponent,
     LoginComponent,
     MenuTableComponent,
+    SQLComponent,
+    PythonComponent,
+    JavaComponent,
+    ScalaComponent,
     GradeComponent
   ],
   imports: [
