@@ -1,0 +1,13 @@
+.main-console{
+  height: 700px;
+  width: 800px;
+}
+
+div {
+  white-space: normal;
+}
+pre {
+  height:600px;
+  white-space: pre-wrap;
+  overflow-y:auto;
+}

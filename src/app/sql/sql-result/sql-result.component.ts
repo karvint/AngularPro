@@ -20,6 +20,7 @@ export class SqlResultComponent implements OnInit,OnChanges {
     }
   }
   ngOnInit() {
+    this.paginationVo.pageSize = 5;
   }
 
   initTable(data:any){

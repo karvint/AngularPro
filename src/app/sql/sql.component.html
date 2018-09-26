@@ -1,26 +1,30 @@
-<div nz-row>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'" (click)="runSql()"><i class="anticon anticon-right-circle-o"></i>运行</button>
+<div nz-row [nzGutter]="20">
+  <div nz-col [nzSpan]="12">
+    <nz-card [nzTitle]="sqlTitle">
+      <div class="lineSpacing">
+        <ngx-codemirror #codeEditor [(ngModel)]="code" [options]="cmOptions"></ngx-codemirror >
+      </div>
+    </nz-card>
+    <ng-template nz-row #sqlTitle>
+      <span (click)="runSql()"><i class="anticon anticon-right-circle-o"></i>运行</span>
+      <span><i class="anticon anticon-pause-circle-o"></i>停止</span>
+      <span><i class="anticon anticon-save"></i>保存</span>
+      <span><i class="anticon anticon-check-circle-o"></i>提交</span>
+      <span><i class="iconfont icon-format-align-left"></i>格式化</span>
+      <span><i class="iconfont icon-inspection"></i>代码检查</span>
+    </ng-template>
+    <nz-card nzTitle="Result" class="lineSpacing">
+      <div>
+        <app-sql-result [resultOption]="sqlResult"></app-sql-result>
+      </div>
+    </nz-card>
   </div>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'"><i class="anticon anticon-pause-circle-o"></i>停止</button>
-  </div>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'"><i class="anticon anticon-save"></i>保存</button>
-  </div>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'"><i class="anticon anticon-check-circle-o"></i>提交</button>
-  </div>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'"><i class="iconfont icon-format-align-left"></i>格式化</button>
-  </div>
-  <div nz-col [nzSpan]="2">
-    <button nz-button [nzType]="'primary'"><i class="iconfont icon-inspection"></i>代码检查</button>
+  <div nz-col [nzSpan]="10">
+    <app-console></app-console>
   </div>
 </div>
-<div style="width:1000px;" class="lineSpacing">
-  <ngx-codemirror #codeEditor [(ngModel)]="code" [options]="cmOptions"></ngx-codemirror >
-</div>
-<div style="width:1000px;" class="lineSpacing">
-  <app-sql-result [resultOption]="sqlResult"></app-sql-result>
-</div>
+
+
+
+
+

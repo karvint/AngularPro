@@ -17,6 +17,7 @@ export class SQLComponent implements OnInit,AfterViewInit {
   code;
   cmOptions;
   sqlResult;
+  showResult = false;
   @ViewChild("codeEditor")private codeEditor;
   constructor(private el:ElementRef,@Inject("sqlService")private sqlService:SqlService){}
   ngOnInit(){
@@ -71,7 +72,7 @@ export class SQLComponent implements OnInit,AfterViewInit {
     };
   }
   ngAfterViewInit(): void {
-    this.codeEditor.codeMirror.setSize(1000,600);
+    this.codeEditor.codeMirror.setSize(750,300);
     this.codeEditor.codeMirror.refresh();
   }
   completeAfter(cm, pred) {
@@ -100,10 +101,12 @@ export class SQLComponent implements OnInit,AfterViewInit {
   }
 
   runSql(){
+    this.showResult = false;
     const sqlData = new SqlData();
     sqlData.sql = this.code;
     this.sqlService.runSql(sqlData).subscribe(res=>{
       this.sqlResult = res.data;
+      this.showResult = true;
     });
   }
 }

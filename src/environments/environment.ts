@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   baseUrl: "http://localhost:8085/scheduler/",
-  homeUrl:"http://localhost:4200/#/home"
+  wsUrl:"ws://localhost:8085/scheduler/ws"
 };
 

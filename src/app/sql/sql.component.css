@@ -1,3 +1,19 @@
 .lineSpacing{
   margin-top: 1%;
 }
+span>i{
+  padding-right: 5px;
+}
+span{
+  padding: 4px 15px;
+  color: rgba(0,0,0,.65);
+  cursor: pointer;
+}
+span:hover{
+  color:blue;
+}
+
+.mirror-width{
+  width: 600px;
+}
+

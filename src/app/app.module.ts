@@ -25,6 +25,7 @@ import { JavaComponent } from './java/java.component';
 import { ScalaComponent } from './scala/scala.component';
 import { SqlResultComponent } from './sql/sql-result/sql-result.component';
 import {SqlService} from "./sql/sql.service";
+import { ConsoleComponent } from './sql/console/console.component';
 
 
 // 路由配置表：路由定义（route definitions）的数组
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     JavaComponent,
     SqlResultComponent,
     ScalaComponent,
+    ConsoleComponent,
     GradeComponent
   ],
   imports: [
