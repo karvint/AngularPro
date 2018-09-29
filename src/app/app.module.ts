@@ -26,6 +26,9 @@ import { ScalaComponent } from './scala/scala.component';
 import { SqlResultComponent } from './sql/sql-result/sql-result.component';
 import {SqlService} from "./sql/sql.service";
 import { ConsoleComponent } from './sql/console/console.component';
+import { FlowchartComponent } from './flowchart/flowchart.component';
+import {FlowchartService} from "./flowchart/flowchart.service";
+import { FlowComponent } from './flow/flow.component';
 
 
 // 路由配置表：路由定义（route definitions）的数组
@@ -53,6 +56,8 @@ const appRoutes: Routes = [
     SqlResultComponent,
     ScalaComponent,
     ConsoleComponent,
+    FlowchartComponent,
+    FlowComponent,
     GradeComponent
   ],
   imports: [
@@ -71,6 +76,7 @@ const appRoutes: Routes = [
     {provide :'menuService',useClass :MenuService},
     {provide :'sqlService',useClass :SqlService},
     {provide :'loginService',useClass :LoginService},
+    {provide :'flowchartService',useClass :FlowchartService},
     { provide: NZ_MESSAGE_CONFIG, useValue: {
         nzDuration: 4500,
         nzMaxStack: 20,

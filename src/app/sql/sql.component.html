@@ -15,7 +15,7 @@
     </ng-template>
     <nz-card nzTitle="Result" class="lineSpacing">
       <div>
-        <app-sql-result [resultOption]="sqlResult"></app-sql-result>
+        <app-sql-result [resultOption]="sqlResult" *ngIf="showResult"></app-sql-result>
       </div>
     </nz-card>
   </div>
